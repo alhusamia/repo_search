@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useContext } from "react";
+import Search from "./components/Search";
+import Main from "./components/Main";
+import { Context } from "./context";
+import { showSearch, setText } from "./context/actions";
 
 function App() {
+  const { state, dispatch } = useContext(Context);
+
+  const onSearch = (e) => {
+    const data = e.target.value;
+    setText(data, dispatch);
+  };
+
+  const OnSearch = () => {
+    showSearch(true, dispatch);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="Body">
+        <div />
+        <div>
+          <div className="search">
+            <input
+              className="searchTerm"
+              onChange={onSearch}
+              value={state.text}
+              placeholder="Enter repo name here..."
+            />
+            <button className="searchButton" onClick={OnSearch}>
+              search
+            </button>
+          </div>
+
+          {state.showSearch ? <Search /> : <Main />}
+        </div>
+      </div>
+      <div />
     </div>
   );
 }
