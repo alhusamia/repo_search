@@ -2,37 +2,125 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Body {
+  display: grid;
+  grid-template-columns: 1fr 20fr 1fr;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 100%;
+}
+.searchTerm {
+  padding: 5px;
+  border-radius: 5px;
+  width: 90%;
+  margin: 15px 0;
+}
+.searchButton {
+  padding: 5px;
+  border-radius: 5px;
+  margin: 15px 5px;
+  background-color: black;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.CardContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 35px;
+}
+.Loading {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: black;
+  font-size: large;
+  font-weight: bold;
+  padding-top: 15%;
+}
+.Empty {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: black;
+  font-size: large;
+  font-weight: bold;
+  padding-top: 25%;
+}
+.card {
+  height: 89%;
+  margin: 15px;
+  border-radius: 10px;
+  border: 1px solid #bfbfbf;
+  background-color: white;
+  box-shadow: 10px 10px 5px #aaaaaa;
+}
+.paginationHolder {
+  display: flex;
+  justify-content: center;
+}
+.pagination {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.paginationButton {
+  margin: 5px 15px;
+  background-color: black;
+  color: white;
+  padding: 7px 20px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.underline {
+  border-bottom: 1px solid #bfbfbf;
+}
+.cardRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+  padding: 0.8% 5px;
+}
+.text {
+  font-size: 14px;
+  color: black;
+}
+
+.textR {
+  font-size: 14px;
+  color: black;
+  font-weight: bold;
+}
+.button {
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0;
+  display: flex;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border-radius: 0 0 10px 10px;
+}
+
+@media (max-width: 992px) {
+  .CardContainer {
+    grid-template-columns: repeat(3, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+}
+@media (max-width: 768px) {
+  .CardContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .CardContainer {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
